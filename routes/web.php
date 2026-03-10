@@ -5,9 +5,14 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SalesController;
+use App\Http\Controllers\LevelController;
+use App\Http\Controllers\KategoriController;
+
+Route::get('/user', [UserController::class, 'index']);
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::get('/level', [LevelController::class, 'index']);
 Route::prefix('category')->group(function () {
     Route::get('/food-beverage', [ProductController::class, 'foodBeverage'])->name('category.food-beverage');
     Route::get('/beauty-health', [ProductController::class, 'beautyHealth'])->name('category.beauty-health');
@@ -17,3 +22,4 @@ Route::prefix('category')->group(function () {
 
 Route::get('/user/{id}/name/{name}', [UserController::class, 'profile'])->name('user.profile');
 Route::get('/sales', [SalesController::class, 'index'])->name('sales.index');
+Route::get('/kategori', [KategoriController::class, 'index']);
