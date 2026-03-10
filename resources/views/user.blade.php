@@ -1,25 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Data User</title>
-</head>
 <body>
-    <h1>Data User</h1>
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Level ID</th>
-            <th>Username</th>
-            <th>Nama</th>
-        </tr>
-        @foreach($user as $u)
-        <tr>
-            <td>{{ $u->user_id }}</td>
-            <td>{{ $u->level_id }}</td>
-            <td>{{ $u->username }}</td>
-            <td>{{ $u->nama }}</td>
-        </tr>
-        @endforeach
-    </table>
+<h1>User Data</h1>
+<a href="{{ url('user/tambah') }}">+ Add User</a>
+
+<table border="1" cellpadding="10">
+<tr>
+<td>ID</td>
+<td>Username</td>
+<td>Name</td>
+<td>ID Level Pengguna</td>
+<td>Aksi</td>
+</tr>
+
+@foreach ($data as $d)
+<tr>
+<td>{{ $d->id }}</td>
+<td>{{ $d->username }}</td>
+<td>{{ $d->nama }}</td>
+<td>{{ $d->level_id }}</td>
+<td>
+<a href="/PWL/POS/public/user/ubah/{{ $d->id }}">Ubah</a>
+</td>
+</tr>
+@endforeach
+
+</table>
 </body>
-</html>
